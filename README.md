@@ -126,15 +126,14 @@ File beat watch for log files and location that have been specified, collects th
  What does Metricbeat record?
 Metric beat compares and track the performance metric and stats of the system.
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-Name   	Function
-	Ip address	Operating system
- Jump Box 	Gateway	10.0.0.4	Linux
- web-1   	Web server 1	10.0.0.6	Linux
- web-2    	Web server 2	10.0.0.7	Linux
- web-3    	Web server 3	10.0.0.8	linux
-Elk -server	Monitoring 	10.1.0.4	linux
+| Name      |  Function      |ip address | Operating system |
+|-----------|----------------|-----------|------------------|	
+|Jump Box   |	Gateway	     |  10.0.0.4 |	Linux       |
+|web-1      |  	Web server 1 |	10.0.0.6 |	Linux       |
+|web-2      |  	Web server 2 |	10.0.0.7 |	Linux       |
+|web-3      |  	Web server 3 |	10.0.0.8 |	linux       |
+|Elk -server|	Monitoring   |	10.1.0.4 |	linux       |
 
 ### Access Policies
 
@@ -178,10 +177,11 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-Name	Ip Addresses
-Web-1	10.0.0.6
-Web-2	10.0.0.7
-Web-3	10.0.0.8
+|Name  |Ip Addresses|
+|------|------------|
+|Web-1 |10.0.0.6    |
+|Web-2 |10.0.0.7    |
+|Web-3 |10.0.0.8    |
 
 We have installed the following Beats on these machines:
 •	Microbeats
