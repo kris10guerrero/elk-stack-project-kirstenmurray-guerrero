@@ -115,7 +115,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
 What aspect of security do load balancers protect? 
-•	The load balancer distributes traffic from clients across multiple machines/ servers without the clients having to having to know how many servers are in use or how the configured. The is because the load balancer is in between the clients and the servers allowing it to enhance the user experience by providing additional security performance and stability.
+-_ The load balancer distributes traffic from clients across multiple machines/ servers without the clients having to having to know how many servers are in use or how the configured. The is because the load balancer is in between the clients and the servers allowing it to enhance the user experience by providing additional security performance and stability.
 
 What is the advantage of a jump box? 
 the jump box is that is gives access to the user from a single node that can be easily secured and monitored.
@@ -140,35 +140,36 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-•	5601 port
+-_ 5601 port
 
 Machines within the network can only be accessed by jump box provisioner .
 Which machine did you allow to access your ELK VM? My machine via ip Address 
 101.190.211.12
 A summary of the access policies in place can be found in the table below.
-Name 	Publicly accessible 	Allowed ip address
-Jump box	Yes	101.190.211.12
-Web-1	No	10.0.0.4
-Web-2 	No	10.0.0.4
-Web-3 	No	10.0.0.4
-Elk	No	10.0.0.4
+|Name 	 |Publicly accessible| Allowed ip address |
+|--------|-------------------|--------------------|
+|Jump box|	              Yes|   101.190.211.12   |
+|Web-1   |                 No|     10.0.0.4       |
+|Web-2   |              	 No| 	   10.0.0.4       |
+|Web-3   |               	 No|     10.0.0.4       |
+|Elk	   |                 No|	   10.0.0.4       |
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 What is the main advantage of automating configuration with Ansible?
-•	Simple : no coding skills are necessary to use ansible playbooks 
-•	Powerful: allows high level IT workflows 
-•	Efficient: no extra software is needed to operate ansible so there is more space for application and resources on the server
-•	Open source: ansible is open source so it is free 
-•	Flexible: Customization of ansible playbooks are very flexing tailoring to the need of the server and can be implemented on the entirety of the application
+-_ Simple : no coding skills are necessary to use ansible playbooks 
+-_ Powerful: allows high level IT workflows 
+-_ Efficient: no extra software is needed to operate ansible so there is more space for application and resources on the server
+-_ Open source: ansible is open source so it is free 
+-_ Flexible: Customization of ansible playbooks are very flexing tailoring to the need of the server and can be implemented on the entirety of the application
 
 The playbook implements the following tasks:
 In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc
-•	Install docker.io
-•	Install pip3
-•	Install docker python module
-•	Increase virtual memory 
-•	Download and launch docker 
+-_ Install docker.io
+-_ Install pip3
+-_ Install docker python module
+-_ Increase virtual memory 
+-_ Download and launch docker 
 
 - ...
 
@@ -177,6 +178,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
+
 |Name  |Ip Addresses|
 |------|------------|
 |Web-1 |10.0.0.6    |
@@ -184,20 +186,20 @@ This ELK server is configured to monitor the following machines:
 |Web-3 |10.0.0.8    |
 
 We have installed the following Beats on these machines:
-•	Microbeats
+-_ Microbeats
 
 These Beats allow us to collect the following information from each machine:
-•	Metric beat- collects metrics data such as location and uptime.
-•	File beat- collects data about file logs and log events 
+-_ Metric beat- collects metrics data such as location and uptime.
+-_ File beat- collects data about file logs and log events 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below
-•	Copy the ansible playbook file to ansible control node.
-•	Update the hosts file to include:
-o	Webservers 
-o	elk machine
-o	edit the hosts file to run on specific machines to install filebeat on the elk server 
-•	Run the playbook and navigate to Kibana (http://[hosts ip]/app/Kibana#/home) to check that the installation worked 
+-_	Copy the ansible playbook file to ansible control node.
+-_Update the hosts file to include:
+--_	Webservers 
+--_elk machine
+--_edit the hosts file to run on specific machines to install filebeat on the elk server 
+-_Run the playbook and navigate to Kibana (http://[hosts ip]/app/Kibana#/home) to check that the installation worked 
 
 
