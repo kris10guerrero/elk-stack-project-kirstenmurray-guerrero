@@ -2,8 +2,33 @@
 
 Domain: Cloud Security
 Question 1:  cloud access control
+
+
 How would you control access to a cloud network?
-it’s always important to have a secure system, as resource that are meant only for the authorised personnel at the organisation to keep the data’s integrity and confidentiality in tact, you have to make sure that your personnel can access the information they need but no one else can. In a project with my cybersecurity boot camp me and my group solve an almost identical problem. In the project we deployed a virtual network that contain multiple virtual machines with Azure, where only our group were able to access the network. Just like you would implement a limit on the amount of personnel allowed to ssh into the network we had to create security rules through the azure network to limit access from unauthorised personnel, by limiting the amount of ip address that have permission to  ssh to the network. after we created the virtual network, after creating the virtual network, I to create and configure a network security group. The network security group would block any traffic from all unauthorised ip address and would allow my group to access the virtual machine underneath. The security network group was to allow access to the primary virtual machine called jump box. I also configure network security groups for the 3 virtual machine underneath the jump box machine which only allowed the connection from the jump box to the other virtual machine (web 1 ,2 and 3). Lastly, I forced the use the a ssh key generator to eliminate vulnerability to password based brute force attacks. This worked well for my project because it ensures that only the personnel with the correct ip address and the ssh keys from the jump box to the other virtual machines were the only users to have access, but it would be difficult to recreate this in a large scale environment because it would require changing the network security group every time a new users need access to the system. Also using ssh keys isn’t very viable for the long run is it is possible they can be cracked or made public. Alternately you would be able to implement a vpn access gateway to the network that would allow the management and monitor of large number of users and is a lot more scalable. Configuring access controls around the sub virtual network, I created the network security group with the rules set a default deny that stop any incoming traffic and then create a ssh rule that allowed only specific ip address to ssh to the jump box virtual machine( any any any deny ) (tcp private ip of jump box type ssh allow) Then I configure security rules that allow the jump box machine to ssh to the sub virtual machine (tcp private ip of jump box to private ip of virtual networks underneath ssh allow) these allow the virtual machines within the network to communicate only with one another and the jump box machine. To make sure that brute forcing a ssh connection with passwords I forced the use of ssh keys and configured the virtual machines public ssh keys to machine the one created on the jump box machine.
+it’s always important to have a secure system, as resource that are meant only for the authorised personnel at the organisation to keep the data’s integrity
+and confidentiality in tact, you have to make sure that your personnel can access the information they need but no one else can. In a project with my cybersecurity
+boot camp me and my group solve an almost identical problem. In the project we deployed a virtual network that contain multiple virtual machines with Azure, 
+where only our group were able to access the network. Just like you would implement a limit on the amount of personnel allowed to ssh into the network we had to
+create security rules through the azure network to limit access from unauthorised personnel, by limiting the amount of ip address that have permission to  ssh to the network.
+
+After we created the virtual network, after creating the virtual network, I to create and configure a network security group. 
+The network security group would block any traffic from all unauthorised ip address and would allow my group to access the virtual machine underneath. 
+The security network group was to allow access to the primary virtual machine called jump box. I also configure network security groups for the 3 virtual machine
+underneath the jump box machine which only allowed the connection from the jump box to the other virtual machine (web 1 ,2 and 3). Lastly, I forced the use the a ssh key 
+generator to eliminate vulnerability to password based brute force attacks.
+
+This worked well for my project because it ensures that only the personnel with the correct ip
+address and the ssh keys from the jump box to the other virtual machines were the only users to have access, but it would be difficult to recreate this in a large scale 
+environment because it would require changing the network security group every time a new users need access to the system. Also using ssh keys isn’t very viable for the
+long run is it is possible they can be cracked or made public. Alternately you would be able to implement a vpn access gateway to the network that would allow the management
+and monitor of large number of users and is a lot more scalable. Configuring access controls around the sub virtual network,
+
+I created the network security group with the rules set a default deny that stop any incoming traffic 
+and then create a ssh rule that allowed only specific ip address to ssh to the jump box virtual machine( any any any deny ) (tcp private ip of jump box type ssh allow)
+Then I configure security rules that allow the jump box machine to ssh to the sub virtual machine (tcp private ip of jump box to private ip of virtual 
+networks underneath ssh allow) these allow the virtual machines within the network to communicate only with one another and the jump box machine. 
+To make sure that brute forcing a ssh connection with passwords I forced the use of ssh keys and configured the virtual machine
+s public ssh keys to machine the one created on the jump box machine.
  
 
 
